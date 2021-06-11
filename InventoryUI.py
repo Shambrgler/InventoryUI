@@ -6,11 +6,13 @@ from PyQt5.QtGui import QFont
 
 filename = r"S:\IS\Inventory DB\PC_Inventory.txt"
 
+#Copies inventory to a new file with "_backup" appended to the name
 def backup_file():
     split_name = filename.split('.')
     new_name = ("%s_backup.txt" % (split_name[0]))
     shutil.copyfile(filename, new_name)
 
+#Creates a list of all items in TXT, sorts list, then writes contents to a new file. Deletes old file
 def sort_file():
     sort_list = []
     with open(filename) as oldfile:
@@ -28,6 +30,7 @@ def sort_file():
     ui.refreshList()
 
 
+#Changes the file that the program is using.  Changes only during runtime
 def change_dir():
     global filename
     editdirtxt, editdirBool = QInputDialog.getText(MainWindow, "Change Directory", "Enter filepath for inventory file:", text=filename)
@@ -148,7 +151,7 @@ class Ui_MainWindow(object):
         self.editButton.setObjectName("editButton")
         self.editButton.clicked.connect(self.editButtonClicked)
         
-        #Menu Bar;  Menu options non-functional
+        #Menu Bar;  File Menu Button
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 885, 20))
