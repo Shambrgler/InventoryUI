@@ -4,8 +4,6 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QPushButton, QListWidget, QLineEdit, QLabel, QMessageBox, QMenuBar, QStatusBar, QInputDialog
 from PyQt5.QtGui import QFont
 
-#Test Commit
-
 filename = r"C:\temp\PC_Inventory.txt"
 
 #Copies inventory to a new file with "_backup" appended to the name
